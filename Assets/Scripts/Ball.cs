@@ -5,13 +5,20 @@ using UnityEngine.UI;
 
 public class Ball : MonoBehaviour
 {
+    [Header("General")]
     [SerializeField] Rigidbody2D rb;
     [SerializeField] Camera cam;
-    [SerializeField] TrailRenderer tr;
+    [SerializeField] bool screenShakeEnable;
+    
+    [Header("Power")]
     [SerializeField] GameObject launchDirDisplay;
     [SerializeField] Image launchTriangle;
     [SerializeField] Gradient powerGradient;
     [SerializeField] float powerMultiplier;
+
+    [Header("Trail")]
+    [SerializeField] TrailRenderer tr;
+    [SerializeField] float trailLengthModifier;
 
     private bool startLaunch;
 
@@ -27,7 +34,7 @@ public class Ball : MonoBehaviour
 
             //Find power of ball launch;
             float power = Vector2.Distance(transform.position, mousePos);
-            power = Mathf.Clamp(power, 0, 10);
+            power = Mathf.Clamp(power * 2, 0, 10);
 
             //Find rotation to launch ball at
             Vector2 launchDir = mousePos - (Vector2)transform.position;
@@ -39,13 +46,15 @@ public class Ball : MonoBehaviour
             //Launches the ball when the player stops clicking;
             if(!Input.GetMouseButton(0)){
                 rb.AddForce(launchDir * power * powerMultiplier, ForceMode2D.Impulse);
+                print(power);
 
                 launchDirDisplay.SetActive(false);
                 startLaunch = false;
             }
         }
         
-        tr.emitting = rb.velocity.magnitude > 3;
+        tr.emitting = rb.velocity.magnitude > trailLengthModifier / 2;
+        tr.time = rb.velocity.magnitude / trailLengthModifier;
     }
 
     //Tracks the player clicking the ball;
@@ -69,6 +78,7 @@ public class Ball : MonoBehaviour
 
     //Shakes the camera when hitting a wall;
     private void OnCollisionEnter2D(Collision2D col) {
-        StartCoroutine(cam.GetComponent<CameraShake>().Shake(0.1f, rb.velocity.magnitude/10));
+        if(screenShakeEnable)
+            StartCoroutine(cam.GetComponent<CameraShake>().Shake(0.1f, rb.velocity.magnitude/trailLengthModifier));
     }
 }
