@@ -12,6 +12,7 @@ public class Ball : MonoBehaviour
     [SerializeField] Camera cam;
     [SerializeField] AudioSource audioSource;
     [SerializeField] Animator ballAnim;
+    [SerializeField] GameObject tutorialWindow;
     
     [Header("Power")]
     [SerializeField] GameObject launchDirDisplay;
@@ -27,7 +28,6 @@ public class Ball : MonoBehaviour
 
     [Header("Coins")]
     [SerializeField] ParticleSystem coinCollected;
-    [SerializeField] TMP_Text coinCountText;
     private float totalCoins;
 
     [Header("Timer")]
@@ -51,8 +51,6 @@ public class Ball : MonoBehaviour
     
     private void Start() {
         totalCoins = GameObject.FindGameObjectsWithTag("Coin").Length;
-        coinCountText.text = totalCoins.ToString();
-
         ShowTime();
     }
 
@@ -90,6 +88,8 @@ public class Ball : MonoBehaviour
                 startLaunch = false;
 
                 if(!timerStarted) StartCoroutine(Timer());
+
+                if(tutorialWindow) tutorialWindow.SetActive(false);
             }
         }
         
@@ -101,11 +101,6 @@ public class Ball : MonoBehaviour
             StopCoroutine("Timer");
             StartCoroutine(Win());
         }
-    }
-
-    //Tracks the player clicking the ball;
-    private void OnMouseOver(){
-        
     }
 
     //Calculates the color of the power arrow;
@@ -143,7 +138,6 @@ public class Ball : MonoBehaviour
             Instantiate(coinCollected, col.transform.position, Quaternion.identity);
             Destroy(col.gameObject);
             totalCoins--;
-            coinCountText.text = totalCoins.ToString();
         }
     }
 
@@ -157,7 +151,7 @@ public class Ball : MonoBehaviour
             }
             yield return new WaitForSeconds(1f);
             timeInSeconds--;
-            ShowTime();            
+            ShowTime();        
         }
 
         if(totalCoins > 0) {
@@ -183,6 +177,7 @@ public class Ball : MonoBehaviour
         rb.velocity *= 0.1f;
         winParticles.Play();
         audioSource.clip = victoryAudio;
+        audioSource.volume = 0.25f;
         audioSource.Play();
 
         yield return new WaitForSeconds(3f);

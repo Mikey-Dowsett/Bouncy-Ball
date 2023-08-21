@@ -7,6 +7,7 @@ TagManager:
   - Spring
   - Coin
   - Wall
+  - Ball
   layers:
   - Default
   - TransparentFX
