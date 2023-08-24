@@ -8,22 +8,34 @@ public class MenuBall : MonoBehaviour
     [Header("Ball")]
     [SerializeField] Rigidbody2D rb;
     [SerializeField] AudioSource audioSource;
-    [SerializeField] Camera cam;
+    private Camera cam;
     [SerializeField] float springPower;
 
     [Header("Menu")]
     [SerializeField] GameObject levelMenu;
     [SerializeField] GameObject mainMenu;
     [SerializeField] Animator loadingScreenAnim;
+    [SerializeField] private bool isEndScreen;
 
-    void Start()
-    {
+    void Start() {
+        cam = Camera.main;
         rb.AddForce(new Vector2(Random.Range(-5, 5), Random.Range(-5, 5)) * Random.Range(2.5f, 5f), ForceMode2D.Impulse);
         if(rb.velocity.x > -0.1f && rb.velocity.x < 0.1f) {
             rb.velocity = new Vector2(2.5f, rb.velocity.y);
         }
         if(rb.velocity.y > -0.1f && rb.velocity.y < 0.1f) {
             rb.velocity = new Vector2(rb.velocity.x, 2.5f);
+        }
+    }
+
+    private void Update() {
+        if (rb.velocity.magnitude < 1f) {
+            rb.AddForce(new Vector2(Random.Range(-5, 5), Random.Range(-5, 5)) * Random.Range(2.5f, 5f), ForceMode2D.Impulse);
+        }
+
+        if (isEndScreen && Input.GetMouseButtonDown(0)) {
+            LoadLevel(0);
+            isEndScreen = false;
         }
     }
 
@@ -60,7 +72,7 @@ public class MenuBall : MonoBehaviour
 
     private IEnumerator LoadingScreen(string levelName) {
         loadingScreenAnim.SetTrigger("Close");
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.25f);
         SceneManager.LoadScene(levelName);
     }
 }

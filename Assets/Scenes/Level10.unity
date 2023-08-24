@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &10989175 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9108427710897677072, guid: a6975e32c5a10124896739c846aac016, type: 3}
+  m_PrefabInstance: {fileID: 1274967440}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &55179185
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3581,8 +3592,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1274967443}
     - target: {fileID: 4908907298731106361, guid: e4bb75f3ae9407449a3709dc336b3294, type: 3}
+      propertyPath: vorDText
+      value: 
+      objectReference: {fileID: 1274967443}
+    - target: {fileID: 4908907298731106361, guid: e4bb75f3ae9407449a3709dc336b3294, type: 3}
       propertyPath: nextScene
-      value: Level11
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4908907298731106361, guid: e4bb75f3ae9407449a3709dc336b3294, type: 3}
       propertyPath: timerText
@@ -3590,7 +3605,7 @@ PrefabInstance:
       objectReference: {fileID: 1274967445}
     - target: {fileID: 4908907298731106361, guid: e4bb75f3ae9407449a3709dc336b3294, type: 3}
       propertyPath: currentScene
-      value: Level10
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4908907298731106361, guid: e4bb75f3ae9407449a3709dc336b3294, type: 3}
       propertyPath: winParticles
@@ -3600,6 +3615,10 @@ PrefabInstance:
       propertyPath: coinCountText
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4908907298731106361, guid: e4bb75f3ae9407449a3709dc336b3294, type: 3}
+      propertyPath: showLevelText
+      value: 
+      objectReference: {fileID: 10989175}
     - target: {fileID: 4908907298731106361, guid: e4bb75f3ae9407449a3709dc336b3294, type: 3}
       propertyPath: continueButton
       value: 

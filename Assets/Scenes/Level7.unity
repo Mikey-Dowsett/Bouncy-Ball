@@ -526,17 +526,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &575889258 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4555710227544860068, guid: a6975e32c5a10124896739c846aac016, type: 3}
-  m_PrefabInstance: {fileID: 575889252}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &782784402
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -729,8 +718,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 575889255}
     - target: {fileID: 4908907298731106361, guid: e4bb75f3ae9407449a3709dc336b3294, type: 3}
+      propertyPath: vorDText
+      value: 
+      objectReference: {fileID: 575889255}
+    - target: {fileID: 4908907298731106361, guid: e4bb75f3ae9407449a3709dc336b3294, type: 3}
       propertyPath: nextScene
-      value: Level8
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4908907298731106361, guid: e4bb75f3ae9407449a3709dc336b3294, type: 3}
       propertyPath: timerText
@@ -738,7 +731,7 @@ PrefabInstance:
       objectReference: {fileID: 575889257}
     - target: {fileID: 4908907298731106361, guid: e4bb75f3ae9407449a3709dc336b3294, type: 3}
       propertyPath: currentScene
-      value: Level7
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4908907298731106361, guid: e4bb75f3ae9407449a3709dc336b3294, type: 3}
       propertyPath: winParticles
@@ -747,7 +740,11 @@ PrefabInstance:
     - target: {fileID: 4908907298731106361, guid: e4bb75f3ae9407449a3709dc336b3294, type: 3}
       propertyPath: coinCountText
       value: 
-      objectReference: {fileID: 575889258}
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908907298731106361, guid: e4bb75f3ae9407449a3709dc336b3294, type: 3}
+      propertyPath: showLevelText
+      value: 
+      objectReference: {fileID: 2070639446}
     - target: {fileID: 4908907298731106361, guid: e4bb75f3ae9407449a3709dc336b3294, type: 3}
       propertyPath: continueButton
       value: 
@@ -934,6 +931,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2070639446 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9108427710897677072, guid: a6975e32c5a10124896739c846aac016, type: 3}
+  m_PrefabInstance: {fileID: 575889252}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2124294898
 PrefabInstance:
   m_ObjectHideFlags: 0
