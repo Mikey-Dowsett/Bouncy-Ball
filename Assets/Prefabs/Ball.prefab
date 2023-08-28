@@ -56,6 +56,8 @@ MonoBehaviour:
   audioSource: {fileID: 4908907298731106362}
   tutorialWindow: {fileID: 0}
   showLevelText: {fileID: 0}
+  wallHitPart: {fileID: 8900665551803323117, guid: 5d76a480f85410442b0f885dabdba68b, type: 3}
+  camSize: 5
   launchDirDisplay: {fileID: 4908907299309588880}
   launchTriangle: {fileID: 4908907300369813559}
   powerGradient:
@@ -139,7 +141,7 @@ SpriteRenderer:
   m_Color: {r: 0.7169812, g: 0.27326453, b: 0.27326453, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 1
+  m_DrawMode: 0
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0

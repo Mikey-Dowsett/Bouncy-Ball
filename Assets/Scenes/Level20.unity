@@ -5907,12 +5907,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4908907298731106361, guid: e4bb75f3ae9407449a3709dc336b3294, type: 3}
       propertyPath: nextScene
-      value: -1
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 4908907298731106361, guid: e4bb75f3ae9407449a3709dc336b3294, type: 3}
       propertyPath: timerText
       value: 
-      objectReference: {fileID: 1246861858}
+      objectReference: {fileID: 0}
     - target: {fileID: 4908907298731106361, guid: e4bb75f3ae9407449a3709dc336b3294, type: 3}
       propertyPath: currentScene
       value: 20
@@ -6096,17 +6096,6 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 6168816163337203720, guid: a6975e32c5a10124896739c846aac016, type: 3}
   m_PrefabInstance: {fileID: 1246861856}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1246861858 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4555710228325215323, guid: a6975e32c5a10124896739c846aac016, type: 3}
-  m_PrefabInstance: {fileID: 1246861856}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1246861859 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9108427710897677072, guid: a6975e32c5a10124896739c846aac016, type: 3}

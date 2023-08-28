@@ -9,9 +9,9 @@ using Cursor = UnityEngine.Cursor;
 public class CameraShake : MonoBehaviour {
     [SerializeField] private AudioSource musicSource;
     private Vector3 startPos;
-    private static bool screenShakeEnable = true;
-    private static bool musicEnable = true;
-    private static bool soundEnable = true;
+    private bool screenShakeEnable = true;
+    private bool musicEnable = true;
+    private bool soundEnable = true;
 
     [SerializeField] private Texture2D closedMouse;
 

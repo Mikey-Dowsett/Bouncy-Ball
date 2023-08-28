@@ -11,6 +11,8 @@ public class Ball : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private GameObject tutorialWindow;
     [SerializeField] private TMP_Text showLevelText;
+    [SerializeField] private ParticleSystem wallHitPart;
+    [SerializeField] private float camSize = 5;
     
     [Header("Power")]
     [SerializeField] private GameObject launchDirDisplay;
@@ -36,6 +38,7 @@ public class Ball : MonoBehaviour
         totalCoins = GameObject.FindGameObjectsWithTag("Coin").Length;
         showLevelText.text = $"Level {currentScene}";
         cam = Camera.main;
+        cam.orthographicSize = camSize;
     }
 
     private void Update() {
@@ -81,6 +84,10 @@ public class Ball : MonoBehaviour
         if(totalCoins <= 0 && !gameOver) {
             StartCoroutine(Win());
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            StartCoroutine(LoadingScreen("Level0"));
+        }
     }
 
     //Calculates the color of the power arrow;
@@ -97,6 +104,7 @@ public class Ball : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D col) {
         //Plays a sound when hitting a wall;
         if(col.collider.CompareTag("Wall") && !gameOver) {
+            Instantiate(wallHitPart, col.contacts[0].point, Quaternion.identity);
             audioSource.pitch = 1 + Random.Range(-0.1f, 0.1f);
             audioSource.Play();
         }
@@ -125,6 +133,7 @@ public class Ball : MonoBehaviour
     //Runs through the victory sequence;
     private IEnumerator Win() {
         gameOver = true;
+        launchDirDisplay.SetActive(false);
         rb.velocity *= 0.25f;
         winParticles.Play();
         audioSource.clip = victoryAudio;
